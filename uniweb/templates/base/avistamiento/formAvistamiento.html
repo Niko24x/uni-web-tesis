@@ -1,0 +1,10 @@
+<div class="content-fluid p-2">
+  <h2>Crear Avistamiento</h2>
+  <hr>
+
+  <form method="post">
+    {% csrf_token %}
+    {% include 'includes/form.html' %}
+    <button type="submit" class="btn btn-success right">Aceptar</button>
+  </form>
+</div>
