@@ -2,7 +2,7 @@
 
 {% block content_card %}
 
-    <h2 class="pt-4">Animales</h2>
+    <h2 class="pt-4">Fincas</h2>
 
     <div class="modal fade" tabindex="-1" role="dialog" id="modal">
         <div class="modal-dialog" role="document">
@@ -13,7 +13,7 @@
 
     <div class="row">
         <div class="col-12 mb-2">
-            <button class="crear-colaborador btn btn-primary float-right" type="button" name="button" data-toggle="modal" data-backdrop="static" data-keyboard="false">Crear Animal</button>
+            <button class="crear-colaborador btn btn-primary float-right" type="button" name="button" data-toggle="modal" data-backdrop="static" data-keyboard="false">Crear Finca</button>
         </div>
     </div>
 
@@ -21,24 +21,18 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">Nombre Animal</th>
-                    <th scope="col">Nombre Latin</th>
-                    <th scope="col">Descripcion</th>
-                    <th scope="col">Region</th>
-                    <th scope="col">Alimentacion</th>
+                    <th scope="col">ID Finca</th>
+                    <th scope="col">Nombre Finca</th>
                 </tr>
             </thead>
             <tbody>
             {% for colaborador in object_list %}
                 <tr>
-                    <td>{{ colaborador.nombre_animal }}</td>
-                    <td>{{ colaborador.nombre_latin }}</td>
-                    <td>{{ colaborador.descripcion }}</td>
-                    <td>{{ colaborador.region }}</td>
-                    <td>{{ colaborador.alimentacion }}</td>
+                    <td>{{ colaborador.id }}</td>
+                    <td>{{ colaborador.nombre_finca  }}</td>
                     <td>
                         <div class="dropdown">
-                            <button type="button" class="update-colaborador btn btn-sm btn-primary" data-id="{% url 'core:actualizarAnimal' colaborador.id %}">
+                            <button type="button" class="update-colaborador btn btn-sm btn-primary" data-id="{% url 'core:actualizarFinca' colaborador.id %}">
                                 <span class="fa fa-edit"></span>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -59,7 +53,7 @@
     $(function () {
       // Create book button
 
-      $(".crear-colaborador").modalForm({formURL: "{% url 'core:crearAnimal' %}"});
+      $(".crear-colaborador").modalForm({formURL: "{% url 'core:crearFinca' %}"});
 
       $(".update-colaborador").each(function () {
         $(this).modalForm({formURL: $(this).data('id')});

@@ -83,13 +83,13 @@ class crearGenero(CreateView):
     model = Genero
     form_class = generoForm
     template_name = 'base/genero/formGenero.html'
-    success_url = reverse_lazy('core:listaAvistamiento')
+    success_url = reverse_lazy('core:listaGenero')
     
 class actualizarGenero(UpdateView):
     model = Genero
     form_class = generoForm
     template_name = 'base/genero/formGenero.html'
-    success_url = reverse_lazy('core:listaAvistamiento')
+    success_url = reverse_lazy('core:listaGenero')
     
 ### Termina Genero
 
@@ -104,13 +104,13 @@ class crearEspecie(CreateView):
     model = Especie
     form_class = especieForm
     template_name = 'base/especie/formEspecie.html'
-    success_url = reverse_lazy('core:listaAvistamiento')
+    success_url = reverse_lazy('core:listaEspecie')
     
 class actualizarEspecie(UpdateView):
     model = Especie
     form_class = especieForm
     template_name = 'base/especie/formEspecie.html'
-    success_url = reverse_lazy('core:listaAvistamiento')
+    success_url = reverse_lazy('core:listaEspecie')
     
 ### Termina Especie
 
@@ -125,13 +125,13 @@ class crearFinca(CreateView):
     model = Finca
     form_class = fincaForm
     template_name = 'base/finca/formFinca.html'
-    success_url = reverse_lazy('core:listaAvistamiento')
+    success_url = reverse_lazy('core:listaFinca')
     
 class actualizarFinca(UpdateView):
     model = Finca
     form_class = fincaForm
     template_name = 'base/finca/formFinca.html'
-    success_url = reverse_lazy('core:listaAvistamiento')
+    success_url = reverse_lazy('core:listaFinca')
     
 ### Termina Finca
 
@@ -139,20 +139,20 @@ class actualizarFinca(UpdateView):
 
 class listaCamara(ListView):
     model = Camara
-    template_name = 'base/avistamiento/listaCamara.html'
+    template_name = 'base/Camara/listaCamara.html'
     context_object_name = 'Avistamientos'
 
 class crearCamara(CreateView):
     model = Camara
-    form_class = camaraForm
-    template_name = 'base/avistamiento/formCamara.html'
-    success_url = reverse_lazy('core:listaAvistamiento')
+    form_class = camaraForm 
+    template_name = 'base/Camara/formCamara.html'
+    success_url = reverse_lazy('core:listaCamara')
     
 class actualizarCamara(UpdateView):
     model = Camara
     form_class = camaraForm
-    template_name = 'base/avistamiento/formCamara.html'
-    success_url = reverse_lazy('core:listaAvistamiento')
+    template_name = 'base/Camara/formCamara.html'
+    success_url = reverse_lazy('core:listaCamara')
     
 ### Termina Camara
 
@@ -167,12 +167,12 @@ class crearAvistamientom(CreateView):
     model = Avistamientom
     form_class = avistamientomForm
     template_name = 'base/avistamientom/formAvistamientom.html'
-    success_url = reverse_lazy('core:listaAvistamiento')
+    success_url = reverse_lazy('core:listaAvistamientoM')
     
 class actualizarAvistamientom(UpdateView):
     model = Avistamientom
     form_class = avistamientomForm
     template_name = 'base/avistamientom/formAvistamientom.html'
-    success_url = reverse_lazy('core:listaAvistamiento')
+    success_url = reverse_lazy('core:listaAvistamientoM')
     
 ### Termina Avistamientom

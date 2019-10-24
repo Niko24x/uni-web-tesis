@@ -53,10 +53,10 @@ class Genero(models.Model):
         verbose_name_plural = "Generos"
 
     def __str__(self):
-        return self.id
+        return self.nombre_genero
 
     def get_absolute_url(self):
-        return reverse("core:home")
+        return reverse("core:listaGenero")
 
 class Especie(models.Model):
     id = models.AutoField(primary_key=True)
@@ -70,10 +70,10 @@ class Especie(models.Model):
         verbose_name_plural = "Especies"
 
     def __str__(self):
-        return self.id
+        return self.nombre_especie
 
     def get_absolute_url(self):
-        return reverse("core:home")
+        return reverse("core:listaEspecie")
 
 class Finca(models.Model):
     id = models.AutoField(primary_key=True)
@@ -84,10 +84,10 @@ class Finca(models.Model):
         verbose_name_plural = "Fincas"
 
     def __str__(self):
-        return self.id
+        return self.nombre_finca
 
     def get_absolute_url(self):
-        return reverse("core:home")
+        return reverse("core:listaFinca")
 
 class Camara(models.Model):
     id = models.AutoField(primary_key=True)
@@ -101,10 +101,10 @@ class Camara(models.Model):
         verbose_name_plural = "Camaras"
 
     def __str__(self):
-        return self.id
+        return self.nombre_camara
 
     def get_absolute_url(self):
-        return reverse("core:home")
+        return reverse("core:listaCamara")
 
 class Avistamientom(models.Model):
     id = models.AutoField(primary_key=True)
@@ -127,4 +127,4 @@ class Avistamientom(models.Model):
         return self.id
 
     def get_absolute_url(self):
-        return reverse("core:home")
+        return reverse("core:listaAvistamientoM")
