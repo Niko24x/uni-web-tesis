@@ -124,7 +124,7 @@ class Avistamientom(models.Model):
         verbose_name_plural = "Avistamientos"
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
     def get_absolute_url(self):
         return reverse("core:listaAvistamientoM")

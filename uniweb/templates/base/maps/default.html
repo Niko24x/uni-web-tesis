@@ -2,7 +2,7 @@
 
 {% block content_card %}
    <h1>Mapa de avistamientos</h1>
-
+   {{ firstValue.camara_fk.ubicacion_longitud }}
           <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
@@ -162,50 +162,55 @@
     var map = new mapboxgl.Map({
     container: 'map',
      style: 'mapbox://styles/mapbox/streets-v10',
-     center: [-85.812, 15.883],
+     center: [{{ firstValue.camara_fk.ubicacion_longitud }}, {{ firstValue.camara_fk.ubicacion_latitud }}],
      zoom: 10
     });
 
     map.on('load', function () {
  
-      map.addLayer({
-      "id": "points",
-      "type": "symbol",
-      "source": {
-      "type": "geojson",
-      "data": {
-      "type": "FeatureCollection",
-      "features": [{
-      "type": "Feature",
-      "geometry": {
-      "type": "Point",
-      "coordinates": [-85.812, 15.883]
-      },
-      "properties": {
-      "title": "Avistamiento",
-      "icon": "zoo"
-      }
-      }, {
-      "type": "Feature",
-      "geometry": {
-      "type": "Point",
-      "coordinates": [-85.811, 15.818]
-      },
-      "properties": {
-      "title": "Avistamiento",
-      "icon": "zoo"
-      }
-      }]
-      }
-      },
-      "layout": {
-      "icon-image": "{icon}-15",
-      "text-field": "{title}",
-      "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-      "text-offset": [0, 0.6],
-      "text-anchor": "top"
-      }
-      });
+      map.addLayer(
+        {
+          "id": "points",
+          "type": "symbol",
+          "source": {
+            "type": "geojson",
+            "data": {
+              "type": "FeatureCollection",
+              "features": [
+                  {% for point in consulta %}
+                  {
+                    "type": "Feature",
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": [
+                        {{ point.camara_fk.ubicacion_longitud }},
+                        {{ point.camara_fk.ubicacion_latitud }}
+                      ]
+                    },
+                    "properties": {
+                      "title": "{{ point.camara_fk.nombre_camara }}",
+                      "icon": "veterinary"
+                    }
+                  },
+                  {% endfor %}
+              ]
+            }
+          },
+          "layout": {
+            "icon-image": "{icon}-15",
+            "text-field": "{title}",
+            "text-font": [
+              "Open Sans Semibold",
+              "Arial Unicode MS Bold"
+            ],
+            "text-offset": [
+              0,
+              0.6
+            ],
+            "text-anchor": "top"
+          }
+        }
+      );
     });
 
     </script>
