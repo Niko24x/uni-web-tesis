@@ -8,6 +8,18 @@ from .models import Finca
 from .models import Camara
 from .models import Avistamientom
 
+fasesLunares = (
+    ('', 'Elija...'),
+    ('Luna Creciente', 'Luna Creciente'),
+    ('Luna Creciente Gibosa', 'Luna Creciente Gibosa'),
+    ('Luna Cuarto Creciente', 'Luna Cuarto Creciente'),
+    ('Luna Cuarto Menguante', 'Luna Cuarto Menguante'),
+    ('Luna Llena', 'Luna Llena'),
+    ('Luna Menguante', 'Luna Menguante'),
+    ('Luna Menguante Gibosa', 'Luna Menguante Gibosa'),
+    ('Luna Nueva', 'Luna Nueva')
+)
+
 class animalForm(forms.ModelForm):
 	class Meta:
 		model = Animal
@@ -48,6 +60,7 @@ class camaraForm(forms.ModelForm):
 		fields = '__all__'
 
 class avistamientomForm(forms.ModelForm):
+	fase_lunar = forms.ChoiceField(choices=fasesLunares)
 	class Meta:
 		model = Avistamientom
 		fields = '__all__'
