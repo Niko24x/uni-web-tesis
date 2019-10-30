@@ -17,6 +17,9 @@ from .forms import camaraForm
 from .models import Avistamientom
 from .forms import avistamientomForm
 
+from rest_framework import viewsets
+from .serializers import CamaraSerializer, AvistamientoMSerializer
+
 from django.views.generic import (ListView,
     CreateView, 
 	UpdateView, 
@@ -176,3 +179,22 @@ class actualizarAvistamientom(UpdateView):
     success_url = reverse_lazy('core:listaAvistamientoM')
     
 ### Termina Avistamientom
+
+### Comienza Vista Django Rest
+
+class CamaraViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Camara.objects.all()
+    serializer_class = CamaraSerializer
+
+
+class AvistamientoMViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Avistamientom.objects.all()
+    serializer_class = AvistamientoMSerializer
+
+### Termina Vista Django Rest

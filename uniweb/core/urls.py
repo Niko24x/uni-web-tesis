@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.urls import path
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
 
 from .views import home
 from .views import listaAnimal, crearAnimal, actualizarAnimal
@@ -12,6 +13,12 @@ from .views import listaEspecie, crearEspecie, actualizarEspecie
 from .views import listaFinca, crearFinca, actualizarFinca
 from .views import listaCamara, crearCamara, actualizarCamara
 from .views import listaAvistamientom, crearAvistamientom, actualizarAvistamientom
+
+from .views import CamaraViewSet, AvistamientoMViewSet
+
+router = routers.DefaultRouter()
+router.register(r'camaras', CamaraViewSet)
+router.register(r'avistamientom', AvistamientoMViewSet)
                     
 app_name = 'core'
 urlpatterns = [
@@ -49,4 +56,8 @@ urlpatterns = [
    path('avistamientom/', login_required(listaAvistamientom.as_view()), name='listaAvistamientoM'),
    path('avistamientom/crear', login_required(crearAvistamientom.as_view()), name='crearAvistamientoM'),
    path('avistamientom/<pk>/act/', login_required(actualizarAvistamientom.as_view()), name='actualizarAvistamientoM'),   
+
+   #Apis
+   path('api/', include(router.urls)),
+   path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

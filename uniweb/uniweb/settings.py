@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'seguridad',
     'bootstrap_modal_forms',
     'maps',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
